@@ -165,9 +165,15 @@ function showClock() {
     let hours = dateForShow.getHours();
     let minutes = dateForShow.getMinutes();
     let seconds = dateForShow.getSeconds();
-    if(hours < 10) { hours = '0' + hours; }
-    if(minutes < 10) { minutes = '0' + minutes; }
-    if(seconds < 10) { seconds = '0' + seconds; }
+    if(hours < 10) {
+        hours = '0' + hours; 
+    }
+    if(minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    if(seconds < 10) {
+        seconds = '0' + seconds;
+    }
     document.getElementById('divDateForShow').innerHTML = hours+':'+minutes+':'+seconds;
 }
 //Crea un div que va a contener las secciones para mostrar las distintas paletas
@@ -217,11 +223,9 @@ function deleteSave(e){
     cleanView();
     if(e === "buttonSavePallet"){
         saveInLocalStorage(arrayPallet);
-        // savedDataLocalStorage();
         arrayPallet.splice(0,arrayPallet.length);
     }else{
         arrayPallet.splice(0,arrayPallet.length);
-        console.log(arrayPallet)
     }
 }
 //FIN Dependiendo del valor del boton (Eliminar Paleta o Guardar Paleta) borra o guarda la paleta y llama a limpiar la 
@@ -276,6 +280,9 @@ function createPalletsForShow(e){
     sectionPallets.setAttribute('class',"sectionPallets");
     divShowAllPallets.append(sectionPallets);
     e.forEach(element => {
+        let elR = element.a
+        let elG = element.b
+        let elB = element.c
         let showR = document.createElement('h1');
         let showG = document.createElement('h1');
         let showB = document.createElement('h1');
@@ -293,15 +300,15 @@ function createPalletsForShow(e){
         showG.setAttribute('id',"showG");
         showB.innerText= "B";
         showB.setAttribute('id',"showB");
-        inputR.value= element.a;
+        inputR.value= elR;
         inputR.setAttribute('id',"inputR");
-        inputG.value= element.b;
+        inputG.value= elG;
         inputG.setAttribute('id',"inputG");
-        inputB.value= element.c;
+        inputB.value= elB;
         inputB.setAttribute('id',"inputB");
         circleForShow.setAttribute('id',"circleForShow");
         circleForShow.setAttribute('class',"circleForShow");
-        let colourForShow = 'rgb('+element.a+','+element.b+','+element.c+')';
+        let colourForShow = 'rgb('+elR+','+elG+','+elB+')';
         circleForShow.style.backgroundColor= colourForShow;
         eachPallets.append(showR);
         eachPallets.append(inputR);
@@ -387,11 +394,11 @@ function verificationForMix(e){
 //FIN Verifica que los botones de + y - no permitan salirse del rango entre 0 y 255 y llama a la funcion mix
 //Llama a la funcion validate y verifica que los datos sean correctos
 function verificationForMixText(e){
-    if(validate(e) === true){
-        mix()
-    }else if(e === 0 || e === 255){
-        mix()
-    }
+    validate(e) === true
+    ? mix()
+    : e === 0 || e === 255
+    mix()
+    
 }
 //FIN Llama a la funcion validate y verifica que los datos sean correctos
 //Valida que los textBox tengan un valor entre 1 y 254
