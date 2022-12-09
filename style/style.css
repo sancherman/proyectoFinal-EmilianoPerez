@@ -1,0 +1,59 @@
+.Circle1{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin: 100px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buttons{
+    display: flex;
+    margin: 10px;
+}
+.buttonYES{
+    border-radius: 2%;
+    border-color: grey;
+    background-color: #9eee09;
+    margin: 10px;
+}
+.sectionPallets{
+    display: flex;
+    margin: 10px;
+}
+.eachPallets{
+    margin: 30px;
+}
+.circleForShow{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+}
+.containerAllS{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.textOfCircle{
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: solid;
+    border:solid 5px grey;
+}
+.sectionGral{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.divDateForShow{
+    margin: 10px;
+    padding: 10px;
+    background-color:#9eee09;
+    border-radius: 5%;
+    font-weight: bold;
+    font-size: x-large;
+}
